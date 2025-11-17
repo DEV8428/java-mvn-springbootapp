@@ -25,9 +25,17 @@ pipeline {
                 sh """
                     docker build -t manisha417/java-mvn-springbootapp:v1.1 .
                     docker tag manisha417/java-mvn-springbootapp:v1.1 manisha417/springbootapp:latest
+    
                 """
             }
         }
+
+       stage('container') {
+    steps {
+        sh 'docker run -d -p 8068:8080 --name springbootapp manisha417/springbootapp:latest'
+    }
+}
+
 
         stage('Login to DockerHub') {
             steps {
