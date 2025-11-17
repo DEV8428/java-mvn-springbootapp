@@ -30,7 +30,7 @@ pipeline {
             }
         }
 
-       stage('container') {
+       stage('container')  {  
     steps {
         sh 'docker run -d -p 8068:8080 --name springbootapp manisha417/springbootapp:latest'
     }
